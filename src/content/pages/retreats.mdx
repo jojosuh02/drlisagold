@@ -4,46 +4,45 @@ description: Soul Surfing psychedelic healing retreats, integrated intimacy ther
 ---
 
 <Hero
-  eyebrow="Retreats"
+  tone="teal"
+  align="center"
   title="Immersive Healing, Together"
-  subtitle="Soul Surfing retreats blend ketamine-assisted psychotherapy, somatic practice, yoga, and nature immersion — held in some of the world&rsquo;s most beautiful settings."
+  subtitle="Soul Surfing retreats blend ketamine-assisted psychotherapy, somatic practice, yoga, and nature immersion — held in some of the world's most beautiful settings."
   primaryCTA={{ label: 'Join the Waitlist', href: '/contact?subject=Retreats' }}
 />
 
-## Retreat types
+<TwoCol image="/img/retreat-soul-surfing.jpeg" imageAlt="Soul Surfing retreat" imagePosition="left" tone="cream">
 
 ### Soul Surfing: KAP &amp; Psychedelic Healing Experiences
 
 Intimate small-group retreats designed around 2–4 ketamine-assisted sessions, with ample
 time for integration, somatic practice, and nature immersion.
 
+</TwoCol>
+
+<TwoCol image="/img/couple-sunset-beach.jpg" imageAlt="Couple at sunset" imagePosition="right" tone="light">
+
 ### Integrated Intimacy Therapy Retreats
 
 For individuals or couples seeking a concentrated window of relational repair — a week of
 daily sessions with Dr. Gold, interspersed with experiential work.
+
+</TwoCol>
+
+<TwoCol image="/img/hero-beach-couple.webp" imageAlt="Couple on the beach" imagePosition="left" tone="cream">
 
 ### Couples Intimacy Retreats
 
 A contained space for couples to reconnect, heal ruptures, and rebuild erotic and emotional
 intimacy. Typically 5 days, small cohort.
 
----
+</TwoCol>
 
 ## Locations
 
-<div className="not-prose mt-8 grid gap-4 md:grid-cols-3">
-  <FeatureCard title="Sedona, Arizona" body="Red rock country, grounded and spacious." />
-  <FeatureCard title="Colorado" body="High-altitude mountain retreats." />
-  <FeatureCard title="Salt Lake City, Utah" body="Close to nature, close to care." />
-  <FeatureCard title="St. Augustine, Florida" body="Coastal intimacy retreats." />
-  <FeatureCard title="Portugal" body="Coastal Alentejo retreat setting." />
-  <FeatureCard title="Barcelona, Spain" body="European cohort training retreats." />
-  <FeatureCard title="Switzerland" body="Alpine contemplative retreats." />
-  <FeatureCard title="Nicaragua" body="Tropical retreat location." />
-  <FeatureCard title="Florida & Portugal" body="Coming soon." />
-</div>
+<LocationGrid />
 
-## What&rsquo;s included
+## What&rsquo;s Included
 
 <List
   items={[
@@ -64,3 +63,7 @@ intimacy. Typically 5 days, small cohort.
   primary={{ label: 'Join Waitlist', href: '/contact?subject=Retreats' }}
   tone="dark"
 />
+
+<Section tone="cream">
+  <PartnerCards />
+</Section>

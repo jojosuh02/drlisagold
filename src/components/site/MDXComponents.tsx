@@ -11,6 +11,9 @@ import { List } from '@/components/mdx/List';
 import { Stat } from '@/components/mdx/Stat';
 import { Callout } from '@/components/mdx/Callout';
 import { ContactForm } from '@/components/ContactForm';
+import { TwoCol } from '@/components/mdx/TwoCol';
+import { LocationGrid } from '@/components/mdx/LocationGrid';
+import { PartnerCards } from '@/components/site/PartnerCards';
 
 export const mdxComponents: MDXComponents = {
   Hero,
@@ -18,12 +21,15 @@ export const mdxComponents: MDXComponents = {
   LeadCapture,
   Testimonial,
   PartnerCard,
+  PartnerCards,
   FeatureCard,
   Section,
   List,
   Stat,
   Callout,
   ContactForm,
+  TwoCol,
+  LocationGrid,
   a: ({ href, children, ...rest }) => {
     const isInternal = href?.startsWith('/') ?? false;
     if (isInternal && href) {

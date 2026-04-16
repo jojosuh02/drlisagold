@@ -109,11 +109,11 @@ export default function PsychotherapyPage() {
         <div className="container-wide grid items-center gap-10 md:grid-cols-[220px_1fr] md:gap-14">
           <div className="mx-auto w-full max-w-[200px]">
             <Image
-              src="/img/book-cover-ketamine-curious.webp"
+              src="/img/book-ketamine-curious-mockup.png"
               alt="Ketamine Curious"
               width={240}
               height={360}
-              className="h-auto w-full rounded-sm shadow-2xl"
+              className="h-auto w-full"
             />
           </div>
           <div>

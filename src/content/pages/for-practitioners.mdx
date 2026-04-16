@@ -4,37 +4,57 @@ description: Training, consultation, and CEUs for therapists, coaches, and medic
 ---
 
 <Hero
-  eyebrow="For Practitioners"
+  tone="teal"
+  align="center"
   title="Training, Consultation & CEUs"
   subtitle="Deepen your practice with evidence-based, experientially grounded training in psychedelic-assisted psychotherapy, EFT for couples, and relational sex therapy."
   primaryCTA={{ label: 'Register for Training', href: '/for-practitioners/training' }}
   secondaryCTA={{ label: 'Schedule Consultation', href: '/for-practitioners/consultation' }}
 />
 
-## Three pathways for practitioners
+<TwoCol image="/img/bg-professionals.webp" imageAlt="" imagePosition="left" tone="cream">
 
-<div className="not-prose mt-12 grid gap-6 md:grid-cols-3">
-  <FeatureCard
-    title="Foundational Training"
-    body="A 5-day experiential KAP training in Arizona and Barcelona. Dyad-based, ethics-informed, and clinically rigorous."
-  />
-  <FeatureCard
-    title="Live Consultation"
-    body="Case conceptualization, session video review, and ethical guidance for your KAP or EFT practice."
-  />
-  <FeatureCard
-    title="CEUs"
-    body="Continuing education hours for licensed therapists, counselors, and medical professionals."
-  />
-</div>
+### Foundational Training
 
----
+A 5-day experiential KAP training in Arizona and Barcelona. Dyad-based, ethics-informed,
+and clinically rigorous. Cohorts are capped at 16 practitioners.
 
-### Who this is for
+[Register Now →](/for-practitioners/training)
 
-- Licensed psychotherapists, psychologists, social workers, and counselors
-- Medical practitioners and prescribers (MDs, NPs, PAs) working in ketamine care
-- Coaches and somatic practitioners operating within their scope of practice
+</TwoCol>
+
+<TwoCol image="/img/window-of-tolerance.webp" imageAlt="" imagePosition="right" tone="light">
+
+### Live Consultation
+
+Case conceptualization, session video review, and ethical guidance for your KAP or EFT
+practice. Private, group, and agency formats available.
+
+[Schedule Consultation →](/for-practitioners/consultation)
+
+</TwoCol>
+
+<TwoCol image="/img/img-about.webp" imageAlt="" imagePosition="left" tone="cream">
+
+### Continuing Education (CEUs)
+
+Earn continuing education hours through live consultation groups and self-study courses.
+Approval varies by state and discipline — confirm with your licensing board.
+
+[Browse CEUs →](/for-practitioners/ceus)
+
+</TwoCol>
+
+## Who This Is For
+
+<List
+  items={[
+    'Licensed psychotherapists, psychologists, social workers, and counselors',
+    'Medical practitioners and prescribers (MDs, NPs, PAs) working in ketamine care',
+    'Coaches and somatic practitioners operating within their scope of practice',
+  ]}
+  columns={1}
+/>
 
 <CTA
   title="Which path fits you?"
@@ -43,3 +63,7 @@ description: Training, consultation, and CEUs for therapists, coaches, and medic
   secondary={{ label: 'Register for Training', href: '/for-practitioners/training' }}
   tone="dark"
 />
+
+<Section tone="cream">
+  <PartnerCards />
+</Section>

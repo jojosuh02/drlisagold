@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Linkedin } from 'lucide-react';
+
 import { site } from '@/lib/site';
 import { footerNav } from '@/lib/nav';
 
@@ -63,22 +64,33 @@ export function SiteFooter() {
             <h5 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
               Partners
             </h5>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {site.partners.map((p) => (
-                <a
-                  key={p.url}
-                  href={p.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block rounded-lg border border-white/10 p-4 hover:border-gold-400"
-                >
-                  <div className="text-sm font-semibold text-white">{p.name}</div>
-                  <div className="mt-1 text-xs text-white/60">{p.description}</div>
-                  <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-gold-400">
-                    Visit Website →
-                  </div>
-                </a>
-              ))}
+            <div className="mt-4 grid gap-6 sm:grid-cols-2">
+              {site.partners.map((p) => {
+                const logoSrc =
+                  p.name === 'Clinica Synaptica'
+                    ? '/img/partner-synaptica.png'
+                    : '/img/partner-azrfi.png';
+                return (
+                  <a
+                    key={p.url}
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block rounded-lg bg-white/95 p-4 transition hover:bg-white"
+                  >
+                    <Image
+                      src={logoSrc}
+                      alt={p.name}
+                      width={280}
+                      height={80}
+                      className="h-12 w-auto object-contain"
+                    />
+                    <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-gold-500">
+                      Visit Website →
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

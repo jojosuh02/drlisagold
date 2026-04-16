@@ -48,8 +48,8 @@ export default function HomePage() {
         <div className="container-wide relative grid items-center gap-10 py-14 md:grid-cols-[240px_1fr] md:gap-16 md:py-20">
           <div className="mx-auto w-full max-w-[220px] md:max-w-[240px]">
             <Image
-              src="/img/book-cover-ketamine-curious.webp"
-              alt="Ketamine Curious book cover"
+              src="/img/book-ketamine-curious-mockup.png"
+              alt="Ketamine Curious book on tablet"
               width={240}
               height={360}
               className="h-auto w-full rounded-sm shadow-2xl"

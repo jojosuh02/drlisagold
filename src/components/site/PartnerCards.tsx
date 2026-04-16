@@ -1,24 +1,51 @@
+import Image from 'next/image';
 import { site } from '@/lib/site';
+
+const PARTNER_LOGOS: Record<string, { src: string; alt: string; width: number; height: number }> = {
+  'Clinica Synaptica': {
+    src: '/img/partner-synaptica.png',
+    alt: 'Clinica Synaptica',
+    width: 280,
+    height: 100,
+  },
+  'Arizona Relationship & Family Institute': {
+    src: '/img/partner-azrfi.png',
+    alt: 'Arizona Relationship & Family Institute',
+    width: 320,
+    height: 100,
+  },
+};
 
 export function PartnerCards() {
   return (
     <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-      {site.partners.map((p) => (
-        <div key={p.url}>
-          <h3 className="font-display text-xl font-semibold text-navy-500 md:text-2xl">
-            {p.name}
-          </h3>
-          <p className="mt-4 text-sm text-ink-700">{p.description}</p>
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-ink-800 hover:text-gold-500"
-          >
-            Visit Website →
-          </a>
-        </div>
-      ))}
+      {site.partners.map((p) => {
+        const logo = PARTNER_LOGOS[p.name];
+        return (
+          <div key={p.url}>
+            {logo && (
+              <div className="flex h-20 items-center">
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.width}
+                  height={logo.height}
+                  className="h-auto max-h-16 w-auto object-contain"
+                />
+              </div>
+            )}
+            <p className="mt-4 text-sm text-ink-700">{p.description}</p>
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-ink-800 hover:text-gold-500"
+            >
+              Visit Website →
+            </a>
+          </div>
+        );
+      })}
     </div>
   );
 }

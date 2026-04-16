@@ -30,7 +30,7 @@ export default function CoachingPage() {
         <div className="container-wide grid items-center gap-12 md:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
             <Image
-              src="/img/hero-surfers.webp"
+              src="/img/hero-surfers.png"
               alt="Learning to surf together"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
