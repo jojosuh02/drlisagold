@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import type { MDXComponents } from 'mdx/types';
+
+type MDXComponents = Record<string, React.ComponentType<any>>;
 import { Hero } from '@/components/mdx/Hero';
 import { CTA } from '@/components/mdx/CTA';
 import { LeadCapture } from '@/components/mdx/LeadCapture';
