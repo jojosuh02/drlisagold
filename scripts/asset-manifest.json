@@ -1,0 +1,37 @@
+{
+  "description": "Curated allowlist of WordPress upload assets to migrate. Paths are relative to _wp-backup/backup_2026_04_16_18_46_15-8b975cac-uploads/. Filenames that contain a WordPress size suffix (-NNNxNNN, -scaled) are matched loosely; the largest variant is preferred.",
+  "assets": [
+    { "key": "logo-wordmark", "match": "dr-lisa-gold-wordmark*.svg", "type": "svg" },
+    { "key": "logo-mark", "match": "LGlisa-gold-logo*.svg", "type": "svg" },
+    { "key": "logo-bullet-gold", "match": "LGbullet-gold*.svg", "type": "svg" },
+    { "key": "logo-soul-surfing", "match": "LGsoulsurfing-logo*.svg", "type": "svg" },
+    { "key": "signature", "match": "*signature*.svg", "type": "svg" },
+    { "key": "headshot-primary", "match": "Dr-Lisa-Gold.png", "type": "image" },
+    { "key": "headshot-sea", "match": "Dr-Lisa-Gold-standing-by-the-sea*.png", "type": "image" },
+    { "key": "headshot-casual", "match": "dr-lisa-gold.{jpg,png,jpeg}", "type": "image" },
+    { "key": "book-cover-ketamine-curious", "match": "LG_KC-book-cover-bg*.jpg", "type": "image" },
+    { "key": "book-cover-soul-surfing", "match": "SS-cover_10-2025*.jpg", "type": "image" },
+    { "key": "book-cover-kap", "match": "KC-Understanding-KAP*.jpg", "type": "image" },
+    { "key": "product-cover-01", "match": "LG_product-cover_01*.jpg", "type": "image" },
+    { "key": "product-cover-02", "match": "LG_product-cover_02*.jpg", "type": "image" },
+    { "key": "ebook-cover", "match": "ebook*.png", "type": "image" },
+    { "key": "hero-beach-couple", "match": "couple-embracing-on-the-beach*.{jpg,jpeg}", "type": "image" },
+    { "key": "hero-surfers", "match": "surfers-couple*.{jpg,jpeg}", "type": "image" },
+    { "key": "img-slider", "match": "img-slider*.{jpg,jpeg,png}", "type": "image" },
+    { "key": "img-about", "match": "img-about*.{jpg,jpeg,png}", "type": "image" },
+    { "key": "bg-professionals", "match": "bck-profesionales*.{jpg,jpeg,png}", "type": "image" },
+    { "key": "partner-clinica-synaptica", "match": "*clinica*synaptica*.{svg,png,jpg}", "type": "image" },
+    { "key": "partner-azrfi", "match": "*arizona*relationship*.{svg,png,jpg}", "type": "image" },
+    { "key": "window-of-tolerance", "match": "*Window-of-Tolerance*.{jpg,jpeg,png}", "type": "image" },
+    { "key": "img-testimonial-1", "match": "Image-Testemonials*.{jpg,jpeg}", "type": "image" },
+    { "key": "resume-pdf", "match": "DR-Lisa-Gold-Vita-resume.pdf", "type": "pdf" },
+    { "key": "hero-video", "match": "Dr-Lisa-gold.mov", "type": "video" }
+  ],
+  "imageWidths": [400, 800, 1600],
+  "outputs": {
+    "imagesDir": "public/img",
+    "docsDir": "public/doc",
+    "videoDir": "public/video",
+    "manifestOutput": "src/lib/images.generated.ts"
+  }
+}
