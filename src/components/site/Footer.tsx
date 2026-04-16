@@ -66,28 +66,28 @@ export function SiteFooter() {
             </h5>
             <div className="mt-4 grid gap-6 sm:grid-cols-2">
               {site.partners.map((p) => {
-                const logoSrc =
+                const logo =
                   p.name === 'Clinica Synaptica'
-                    ? '/img/partner-synaptica.png'
-                    : '/img/partner-azrfi.png';
+                    ? { src: '/img/partner-synaptica.png', w: 512, h: 134 }
+                    : { src: '/img/partner-azrfi.png', w: 400, h: 111 };
                 return (
                   <a
                     key={p.url}
                     href={p.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="block rounded-lg bg-white/95 p-4 transition hover:bg-white"
+                    className="flex flex-col items-start gap-4 rounded-lg bg-white p-6 transition hover:shadow-lg"
                   >
                     <Image
-                      src={logoSrc}
+                      src={logo.src}
                       alt={p.name}
-                      width={280}
-                      height={80}
-                      className="h-12 w-auto object-contain"
+                      width={logo.w}
+                      height={logo.h}
+                      className="h-auto w-full max-w-[240px]"
                     />
-                    <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-gold-500">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-gold-500">
                       Visit Website →
-                    </div>
+                    </span>
                   </a>
                 );
               })}

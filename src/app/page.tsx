@@ -14,9 +14,9 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[75%_center]"
+            className="object-cover object-[right_center]"
           />
-          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-cream-100 via-cream-100/85 to-transparent md:w-3/5" />
+          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-cream-100 via-cream-100/75 to-transparent md:w-1/2" />
         </div>
         <div className="relative mx-auto flex min-h-[78vh] w-full max-w-6xl flex-col justify-center px-6 py-20">
           <div className="max-w-xl">
@@ -28,7 +28,7 @@ export default function HomePage() {
               priority
               className="h-auto w-full max-w-[540px]"
             />
-            <p className="mt-6 font-display text-lg font-light text-navy-500 md:text-xl">
+            <p className="mt-6 font-sans text-base font-medium text-navy-500 md:text-lg">
               Integrative Relationship, Sex, and
               <br />
               Psychedelic-Assisted Psychotherapist
@@ -45,16 +45,7 @@ export default function HomePage() {
 
       {/* BOOK PRE-ORDER — dark navy */}
       <section className="relative overflow-hidden bg-navy-500 text-white">
-        <div className="container-wide relative grid items-center gap-10 py-14 md:grid-cols-[240px_1fr] md:gap-16 md:py-20">
-          <div className="mx-auto w-full max-w-[220px] md:max-w-[240px]">
-            <Image
-              src="/img/book-ketamine-curious-mockup.png"
-              alt="Ketamine Curious book on tablet"
-              width={240}
-              height={360}
-              className="h-auto w-full rounded-sm shadow-2xl"
-            />
-          </div>
+        <div className="container-wide relative grid items-center gap-10 py-14 md:grid-cols-[1fr_260px] md:gap-16 md:py-20">
           <div>
             <p className="text-sm text-white/85">
               Pre-order your copy of the book: <strong className="text-white">"Ketamine Curious: How This Legal Psychedelic Medicine Can Transform Your Trauma Into Healing and Growth"</strong>
@@ -69,22 +60,31 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+          <div className="mx-auto w-full max-w-[240px] md:max-w-[280px]">
+            <Image
+              src="/img/book-ketamine-curious-mockup.png"
+              alt="Ketamine Curious book on tablet"
+              width={280}
+              height={420}
+              className="h-auto w-full"
+            />
+          </div>
         </div>
       </section>
 
       {/* SOUL SURFING — giant wordmark left, teal panel right */}
       <section className="bg-cream-100">
-        <div className="container-wide grid gap-10 py-16 md:grid-cols-2 md:items-center md:py-24">
-          <div className="relative">
+        <div className="container-wide grid gap-10 py-16 md:grid-cols-[1fr_1fr] md:items-center md:py-24">
+          <div className="relative flex items-center justify-center">
             <Image
               src="/img/soul-surfing-logo.svg"
               alt="Soul Surfing"
               width={600}
-              height={400}
-              className="h-auto w-full max-w-[480px]"
+              height={340}
+              className="h-auto w-full max-w-[500px]"
             />
           </div>
-          <div className="rounded-lg bg-teal-500 p-8 text-white md:p-10">
+          <div className="rounded-lg bg-teal-500 p-10 text-white md:p-14">
             <p className="font-display text-sm uppercase tracking-[0.15em] text-white/90">
               Integrative Emotionally Focused (EFT)
             </p>
@@ -117,8 +117,8 @@ export default function HomePage() {
 
       {/* ABOUT — image left, text right with gold bullets */}
       <section className="bg-white py-16 md:py-24">
-        <div className="container-wide grid items-center gap-12 md:grid-cols-2">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
+        <div className="container-wide grid items-start gap-12 md:grid-cols-2">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
             <Image
               src="/img/img-slider.webp"
               alt="Dr. Lisa Gold walking on the beach"
@@ -249,9 +249,9 @@ export default function HomePage() {
             <Image
               src="/img/dr-lisa-gold-signature.svg"
               alt="Dr. Lisa Gold signature"
-              width={180}
-              height={90}
-              className="h-auto w-[140px] brightness-0 invert"
+              width={240}
+              height={120}
+              className="h-auto w-[200px] brightness-0 invert"
             />
           </div>
         </div>
@@ -260,7 +260,7 @@ export default function HomePage() {
       {/* HOW CAN I HELP YOU — CTA trio + dual tan/teal therapist blocks */}
       <section className="bg-cream-100 py-16 md:py-20">
         <div className="container-wide text-center">
-          <p className="font-display text-xs uppercase tracking-[0.25em] text-gold-500">
+          <p className="font-display text-sm uppercase tracking-[0.25em] text-teal-500">
             How can I help you?
           </p>
           <div className="mt-8 flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row">

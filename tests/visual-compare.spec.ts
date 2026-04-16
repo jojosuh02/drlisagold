@@ -35,10 +35,12 @@ for (const page of PAGES) {
 
     await pw.goto(`${LIVE}${page.path}`, { waitUntil: 'networkidle', timeout: 30_000 });
     await pw.evaluate(() => (document as any).fonts?.ready);
+    await scrollFullPage(pw);
     await pw.screenshot({ path: livePath, fullPage: true });
 
     await pw.goto(`${LOCAL}${page.path}`, { waitUntil: 'networkidle', timeout: 30_000 });
     await pw.evaluate(() => (document as any).fonts?.ready);
+    await scrollFullPage(pw);
     await pw.screenshot({ path: localPath, fullPage: true });
 
     const [live, local] = await Promise.all([
@@ -62,6 +64,45 @@ for (const page of PAGES) {
     console.log(`[${page.slug}] diff pixels: ${pixels}, ratio: ${(ratio * 100).toFixed(2)}%`);
     expect(ratio, `pixel diff too high for ${page.slug}`).toBeLessThan(0.25);
   });
+}
+
+async function scrollFullPage(page: import('@playwright/test').Page) {
+  // Force every <img> out of lazy-loading and wait for all to complete
+  await page.evaluate(() => {
+    document.querySelectorAll('img').forEach((img) => {
+      img.loading = 'eager';
+    });
+  });
+  await page.evaluate(async () => {
+    const imgs = Array.from(document.images);
+    await Promise.all(
+      imgs.map((img) =>
+        img.complete
+          ? Promise.resolve()
+          : new Promise((r) => {
+              img.addEventListener('load', r, { once: true });
+              img.addEventListener('error', r, { once: true });
+            }),
+      ),
+    );
+  });
+  // Scroll through so any CSS-background elements paint, then return to top
+  await page.evaluate(async () => {
+    await new Promise<void>((resolve) => {
+      let total = 0;
+      const step = 500;
+      const timer = setInterval(() => {
+        window.scrollBy(0, step);
+        total += step;
+        if (total >= document.body.scrollHeight) {
+          clearInterval(timer);
+          window.scrollTo(0, 0);
+          setTimeout(resolve, 600);
+        }
+      }, 50);
+    });
+  });
+  await page.waitForLoadState('networkidle');
 }
 
 function cropToSize(png: PNG, w: number, h: number): PNG {
