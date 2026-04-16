@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbo -p 4321",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4321",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "extract-assets": "tsx scripts/extract-assets.ts",
@@ -26,10 +26,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@types/node": "^22.9.0",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.1",
     "autoprefixer": "^10.4.20",
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0",
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",

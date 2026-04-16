@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ShoppingBag } from 'lucide-react';
 import { navigation, type NavItem } from '@/lib/nav';
 import { cn } from '@/lib/utils';
 
@@ -12,12 +12,17 @@ export function SiteHeader() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-gold-100 bg-cream-50/95 backdrop-blur">
-      <div className="container-wide flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3" aria-label="Dr. Lisa Gold home">
-          <span className="font-display text-xl tracking-wide text-gold-700">
-            Dr. Lisa Gold
-          </span>
+    <header className="sticky top-0 z-50 w-full border-b border-gold-100/60 bg-white">
+      <div className="mx-auto flex h-[84px] w-full max-w-7xl items-center justify-between px-6">
+        <Link href="/" aria-label="Dr. Lisa Gold home" className="flex items-center">
+          <Image
+            src="/img/lg-logo.svg"
+            alt="Dr. Lisa Gold"
+            width={80}
+            height={80}
+            priority
+            className="h-14 w-14 md:h-16 md:w-16"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -36,14 +41,17 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/contact"
-            className="hidden rounded-full bg-gold-500 px-5 py-2 text-xs font-medium uppercase tracking-wider text-white hover:bg-gold-600 md:inline-flex"
+            href="/shop"
+            className="hidden items-center gap-2 rounded-full border border-gold-200 px-4 py-2 text-sm font-medium text-navy-500 transition hover:border-gold-400 hover:text-gold-500 md:inline-flex"
+            aria-label="Cart"
           >
-            Schedule a Consult
+            <ShoppingBag size={16} />
+            <span>$0.00</span>
+            <span className="ml-1 rounded-full bg-teal-500 px-2 py-0.5 text-xs text-white">0</span>
           </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-800 hover:bg-gold-50 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md text-navy-500 hover:bg-cream-50 lg:hidden"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -53,18 +61,11 @@ export function SiteHeader() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-gold-100 bg-cream-50 lg:hidden">
-          <nav className="container-wide flex flex-col py-4">
+        <div className="border-t border-gold-100 bg-white lg:hidden">
+          <nav className="mx-auto flex w-full max-w-7xl flex-col px-6 py-4">
             {navigation.map((item) => (
               <MobileNavItem key={item.href} item={item} onClose={() => setMobileOpen(false)} />
             ))}
-            <Link
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="mt-4 rounded-full bg-gold-500 px-5 py-3 text-center text-sm font-medium uppercase tracking-wider text-white hover:bg-gold-600"
-            >
-              Schedule a Consult
-            </Link>
           </nav>
         </div>
       )}
@@ -87,7 +88,7 @@ function NavLink({
     return (
       <Link
         href={item.href}
-        className="rounded-md px-3 py-2 text-sm font-medium text-ink-700 hover:text-gold-700"
+        className="rounded px-3 py-2 text-[13px] font-semibold uppercase tracking-wide text-navy-500 transition hover:text-gold-500"
       >
         {item.label}
       </Link>
@@ -97,10 +98,10 @@ function NavLink({
     <div className="relative" onMouseLeave={onClose}>
       <button
         onClick={onToggle}
-        onMouseEnter={() => !open && onToggle()}
+        onMouseEnter={onToggle}
         className={cn(
-          'inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-ink-700 hover:text-gold-700',
-          open && 'text-gold-700',
+          'inline-flex items-center gap-1 rounded px-3 py-2 text-[13px] font-semibold uppercase tracking-wide text-navy-500 transition hover:text-gold-500',
+          open && 'text-gold-500',
         )}
         aria-expanded={open}
       >
@@ -108,13 +109,13 @@ function NavLink({
         <ChevronDown size={14} className={cn('transition-transform', open && 'rotate-180')} />
       </button>
       {open && (
-        <div className="absolute left-0 top-full mt-1 w-60 rounded-md border border-gold-100 bg-cream-50 py-2 shadow-lg">
+        <div className="absolute left-0 top-full w-64 bg-navy-500 py-2 shadow-lg">
           {item.children.map((child) => (
             <Link
               key={child.href}
               href={child.href}
               onClick={onClose}
-              className="block px-4 py-2 text-sm text-ink-700 hover:bg-gold-50 hover:text-gold-700"
+              className="block px-5 py-3 text-sm font-medium text-white hover:bg-navy-600 hover:text-gold-300"
             >
               {child.label}
             </Link>
@@ -132,7 +133,7 @@ function MobileNavItem({ item, onClose }: { item: NavItem; onClose: () => void }
       <Link
         href={item.href}
         onClick={onClose}
-        className="border-b border-gold-100/60 py-3 text-sm font-medium text-ink-800"
+        className="border-b border-gold-100/60 py-3 text-sm font-semibold uppercase tracking-wide text-navy-500"
       >
         {item.label}
       </Link>
@@ -142,20 +143,20 @@ function MobileNavItem({ item, onClose }: { item: NavItem; onClose: () => void }
     <div className="border-b border-gold-100/60">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-center justify-between py-3 text-sm font-medium text-ink-800"
+        className="flex w-full items-center justify-between py-3 text-sm font-semibold uppercase tracking-wide text-navy-500"
         aria-expanded={open}
       >
         {item.label}
         <ChevronDown size={16} className={cn('transition-transform', open && 'rotate-180')} />
       </button>
       {open && (
-        <div className="pb-3">
+        <div className="pb-3 pl-4">
           {item.children.map((child) => (
             <Link
               key={child.href}
               href={child.href}
               onClick={onClose}
-              className="block py-2 pl-4 text-sm text-ink-600"
+              className="block py-2 text-sm font-medium text-ink-700"
             >
               {child.label}
             </Link>

@@ -46,15 +46,15 @@ export const mdxComponents: MDXComponents = {
     );
   },
   h1: ({ children }) => (
-    <h1 className="mt-0 font-display text-4xl text-ink-900 md:text-5xl">{children}</h1>
+    <h1 className="mt-0 font-display text-3xl text-gold-500 md:text-4xl">{children}</h1>
   ),
   h2: ({ children }) => (
-    <h2 className="mt-12 font-display text-3xl text-gold-800 md:text-4xl">{children}</h2>
+    <h2 className="mt-12 font-display text-2xl text-gold-500 md:text-[30px]">{children}</h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mt-8 font-display text-2xl text-gold-700">{children}</h3>
+    <h3 className="mt-8 font-display text-xl text-gold-500 md:text-[28px]">{children}</h3>
   ),
-  p: ({ children }) => <p className="mt-4 text-lg leading-relaxed text-ink-700">{children}</p>,
+  p: ({ children }) => <p className="mt-4 text-base leading-relaxed text-ink-800">{children}</p>,
   ul: ({ children }) => (
     <ul className="mt-4 list-disc space-y-2 pl-6 text-ink-700">{children}</ul>
   ),

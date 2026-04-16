@@ -11,9 +11,8 @@ export const navigation: NavItem[] = [
     label: 'For Practitioners',
     href: '/for-practitioners',
     children: [
-      { label: 'Therapist Training', href: '/for-practitioners/training' },
-      { label: 'Therapist Consultation', href: '/for-practitioners/consultation' },
-      { label: 'CEUs', href: '/for-practitioners/ceus' },
+      { label: 'Training & Certification', href: '/for-practitioners/training' },
+      { label: 'Consultation', href: '/for-practitioners/consultation' },
     ],
   },
   { label: 'Psychotherapy', href: '/psychotherapy' },
@@ -23,11 +22,4 @@ export const navigation: NavItem[] = [
   { label: 'Contact', href: '/contact' },
 ];
 
-export const footerNav: NavItem[] = [
-  { label: 'About', href: '/about' },
-  { label: 'Psychotherapy', href: '/psychotherapy' },
-  { label: 'Retreats', href: '/retreats' },
-  { label: 'Ketamine Curious', href: '/ketamine-curious' },
-  { label: 'Shop', href: '/shop' },
-  { label: 'Contact', href: '/contact' },
-];
+export const footerNav: NavItem[] = navigation.filter((n) => n.href !== '/');

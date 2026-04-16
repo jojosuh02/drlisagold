@@ -1,19 +1,26 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Linkedin } from 'lucide-react';
 import { site } from '@/lib/site';
 import { footerNav } from '@/lib/nav';
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-gold-100 bg-ink-900 text-cream-100">
+    <footer className="mt-24 bg-navy-500 text-white">
       <div className="container-wide py-16">
-        <div className="grid gap-12 md:grid-cols-3">
-          <div>
-            <Link href="/" className="font-display text-2xl text-gold-300">
-              Dr. Lisa Gold
+        <div className="grid gap-12 md:grid-cols-4">
+          <div className="md:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-3" aria-label="Dr. Lisa Gold home">
+              <Image
+                src="/img/lg-logo.svg"
+                alt=""
+                width={72}
+                height={72}
+                className="h-16 w-16"
+              />
             </Link>
-            <p className="mt-3 max-w-xs text-sm text-cream-100/70">
-              Integrative relationship, sex, and psychedelic-assisted psychotherapy.
+            <p className="mt-4 text-sm text-white/70">
+              Integrative relationship, sex &amp; psychedelic-assisted psychotherapy.
             </p>
             <div className="mt-6 flex items-center gap-4">
               <a
@@ -21,7 +28,7 @@ export function SiteFooter() {
                 aria-label="Instagram"
                 target="_blank"
                 rel="noreferrer"
-                className="text-cream-100/70 hover:text-gold-300"
+                className="text-white/70 hover:text-gold-400"
               >
                 <Instagram size={20} />
               </a>
@@ -30,7 +37,7 @@ export function SiteFooter() {
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noreferrer"
-                className="text-cream-100/70 hover:text-gold-300"
+                className="text-white/70 hover:text-gold-400"
               >
                 <Linkedin size={20} />
               </a>
@@ -38,11 +45,13 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h5 className="font-display text-lg text-gold-300">Navigate</h5>
+            <h5 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
+              Navigate
+            </h5>
             <ul className="mt-4 space-y-2 text-sm">
               {footerNav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-cream-100/70 hover:text-gold-300">
+                  <Link href={item.href} className="text-white/70 hover:text-gold-400">
                     {item.label}
                   </Link>
                 </li>
@@ -50,36 +59,37 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div>
-            <h5 className="font-display text-lg text-gold-300">Partners</h5>
-            <ul className="mt-4 space-y-4 text-sm">
+          <div className="md:col-span-2">
+            <h5 className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
+              Partners
+            </h5>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
               {site.partners.map((p) => (
-                <li key={p.url}>
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block text-cream-100/70 hover:text-gold-300"
-                  >
-                    <span className="block font-medium text-cream-100">{p.name}</span>
-                    <span className="mt-1 block text-xs text-cream-100/60">{p.description}</span>
-                  </a>
-                </li>
+                <a
+                  key={p.url}
+                  href={p.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block rounded-lg border border-white/10 p-4 hover:border-gold-400"
+                >
+                  <div className="text-sm font-semibold text-white">{p.name}</div>
+                  <div className="mt-1 text-xs text-white/60">{p.description}</div>
+                  <div className="mt-3 text-xs font-semibold uppercase tracking-wide text-gold-400">
+                    Visit Website →
+                  </div>
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-8 text-xs text-cream-100/50 md:flex-row md:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Dr. Lisa Gold. All Rights Reserved.</p>
           <div className="flex items-center gap-4">
-            <Link href="/communication-preferences" className="hover:text-gold-300">
+            <Link href="/communication-preferences" className="hover:text-gold-400">
               Communication Preferences
             </Link>
-            <a
-              href={`mailto:${site.contactEmail}`}
-              className="hover:text-gold-300"
-            >
+            <a href={`mailto:${site.contactEmail}`} className="hover:text-gold-400">
               {site.contactEmail}
             </a>
           </div>
