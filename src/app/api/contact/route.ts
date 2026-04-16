@@ -29,8 +29,8 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL ?? site.contactEmail;
-  if (!apiKey) {
-    console.error('RESEND_API_KEY not configured');
+  if (!apiKey || !to) {
+    console.error('Email not configured: set RESEND_API_KEY and CONTACT_TO_EMAIL');
     return NextResponse.json({ error: 'Email not configured' }, { status: 503 });
   }
 

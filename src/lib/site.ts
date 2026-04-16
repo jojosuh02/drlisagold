@@ -4,7 +4,9 @@ export const site = {
   description:
     'Integrative relationship, sex, and psychedelic-assisted psychotherapy with Dr. Lisa Gold. Training, retreats, and consultation for therapists.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://drlisagold.com',
-  contactEmail: 'hola@clyckmedia.com',
+  // TODO: Luke — add Lisa's preferred contact email here. Wired through Footer,
+  // /contact API fallback, and any mailto: links on the site. Leave as null until provided.
+  contactEmail: null as string | null,
   social: {
     instagram: 'https://www.instagram.com/drlisagold',
     linkedin: 'https://www.linkedin.com/in/lisa-gold-phd',

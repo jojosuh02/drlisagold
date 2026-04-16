@@ -101,9 +101,11 @@ export function SiteFooter() {
             <Link href="/communication-preferences" className="hover:text-gold-400">
               Communication Preferences
             </Link>
-            <a href={`mailto:${site.contactEmail}`} className="hover:text-gold-400">
-              {site.contactEmail}
-            </a>
+            {site.contactEmail && (
+              <a href={`mailto:${site.contactEmail}`} className="hover:text-gold-400">
+                {site.contactEmail}
+              </a>
+            )}
           </div>
         </div>
       </div>
