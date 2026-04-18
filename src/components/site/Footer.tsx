@@ -7,7 +7,7 @@ import { footerNav } from '@/lib/nav';
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 bg-navy-500 text-white">
+    <footer className="mt-24 bg-teal-500 text-white">
       <div className="container-wide py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-1">

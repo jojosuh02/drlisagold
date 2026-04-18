@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { PartnerCards } from '@/components/site/PartnerCards';
 
 export default function HomePage() {
   return (
@@ -16,7 +17,7 @@ export default function HomePage() {
             sizes="100vw"
             className="object-cover object-[right_center]"
           />
-          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-cream-100 via-cream-100/75 to-transparent md:w-1/2" />
+          <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-cream-100/95 via-cream-100/60 to-transparent md:w-[55%]" />
         </div>
         <div className="relative mx-auto flex min-h-[78vh] w-full max-w-6xl flex-col justify-center px-6 py-20">
           <div className="max-w-xl">
@@ -72,19 +73,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SOUL SURFING — giant wordmark left, teal panel right */}
-      <section className="bg-cream-100">
-        <div className="container-wide grid gap-10 py-16 md:grid-cols-[1fr_1fr] md:items-center md:py-24">
+      {/* SOUL SURFING — full-bleed sunset background photo with overlaid wordmark + teal panel */}
+      <section className="relative isolate overflow-hidden">
+        <Image
+          src="/img/soul-surfing-wide.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/20" />
+        <div className="container-wide relative grid gap-10 py-20 md:grid-cols-[1fr_1fr] md:items-center md:py-28">
           <div className="relative flex items-center justify-center">
             <Image
               src="/img/soul-surfing-logo.svg"
               alt="Soul Surfing"
               width={600}
               height={340}
-              className="h-auto w-full max-w-[500px]"
+              className="h-auto w-full max-w-[520px] brightness-0 invert"
             />
           </div>
-          <div className="rounded-lg bg-teal-500 p-10 text-white md:p-14">
+          <div className="rounded-lg bg-teal-500/90 p-10 text-white shadow-xl backdrop-blur-sm md:p-14">
             <p className="font-display text-sm uppercase tracking-[0.15em] text-white/90">
               Integrative Emotionally Focused (EFT)
             </p>
@@ -118,12 +127,12 @@ export default function HomePage() {
       {/* ABOUT — image left, text right with gold bullets */}
       <section className="bg-white py-16 md:py-24">
         <div className="container-wide grid items-start gap-12 md:grid-cols-2">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
+          <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-lg">
             <Image
               src="/img/img-slider.webp"
               alt="Dr. Lisa Gold walking on the beach"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 40vw"
               className="object-cover"
             />
           </div>
@@ -277,7 +286,16 @@ export default function HomePage() {
         </div>
 
         <div className="container-wide mt-14 grid gap-0 md:grid-cols-2">
-          <div className="rounded-l-lg bg-gold-400 p-10 text-white">
+          <div
+            className="relative overflow-hidden rounded-l-lg bg-gold-400 p-10 text-white"
+            style={{
+              backgroundImage: 'url(/img/lisa-gold-bg.svg)',
+              backgroundSize: '220px auto',
+              backgroundPosition: 'right bottom',
+              backgroundRepeat: 'no-repeat',
+              backgroundBlendMode: 'soft-light',
+            }}
+          >
             <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">
               Do You Already Have a Therapist?
             </h3>
@@ -287,7 +305,16 @@ export default function HomePage() {
               therapeutic relationship stays intact.
             </p>
           </div>
-          <div className="rounded-r-lg bg-teal-500 p-10 text-white">
+          <div
+            className="relative overflow-hidden rounded-r-lg bg-teal-500 p-10 text-white"
+            style={{
+              backgroundImage: 'url(/img/lisa-gold-bg.svg)',
+              backgroundSize: '220px auto',
+              backgroundPosition: 'right bottom',
+              backgroundRepeat: 'no-repeat',
+              backgroundBlendMode: 'soft-light',
+            }}
+          >
             <h3 className="font-display text-2xl font-semibold text-white md:text-3xl">
               Are You a Therapist?
             </h3>
@@ -317,7 +344,7 @@ export default function HomePage() {
       </section>
 
       {/* MODALITIES */}
-      <section className="bg-white py-16 md:py-20">
+      <section className="bg-ivory py-16 md:py-20">
         <div className="container-wide grid gap-12 md:grid-cols-2">
           <div>
             <h3 className="font-display text-xl font-semibold text-teal-500 md:text-2xl">
@@ -360,6 +387,13 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* PARTNERS — separate cream section before footer */}
+      <section className="bg-cream-100 py-16 md:py-20">
+        <div className="container-wide">
+          <PartnerCards />
         </div>
       </section>
     </>
