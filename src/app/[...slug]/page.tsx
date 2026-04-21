@@ -95,7 +95,7 @@ export default async function CatchAllPage({
 
   return (
     <article className="mx-auto w-full max-w-4xl px-6 py-16 md:py-24">
-      <MDXRemote source={page.source} components={mdxComponents} />
+      <MDXRemote source={page.source} components={mdxComponents} options={{ blockJS: false }} />
     </article>
   );
 }
